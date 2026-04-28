@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Window</title>
+    <style>
+        /* Cores e Estilo Geral */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #586658;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            background: rgb(219, 233, 213);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #2e7d32; text-align: center; }
+        p { text-align: center; color: #666; }
+
+        /* Painel de Filtros - AJUSTADO PARA 3 COLUNAS */
+        .filtros {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .campo { display: flex; flex-direction: column; }
+        label { font-weight: bold; margin-bottom: 5px; color: #1b5e20; font-size: 14px; }
+        
+        select, button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            grid-column: span 3;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover { background-color: #388e3c; }
+
+        /* Estilo da Tabela */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; }
+        th { background-color: #2e7d32; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+        tr:hover { background-color: #f1f8e9; }
+
+        #mensagem { text-align: center; font-weight: bold; color: #d32f2f; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌿 Encontre sua Planta Ideal</h1>
+    <p>Preencha as informações abaixo para uma recomendação personalizada.</p>
+
+    <div class="filtros">
+        <div class="campo">
+            <label>O que você quer cultivar?</label>
+            <select id="filtro-categoria">
+                <option value="Todos">Tudo</option>
+                <option value="Folhagem">Folhagem</option>
+                <option value="Flor">Flor</option>
+                <option value="Horta">Horta (Temperos)</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Quanto sol bate no local?</label>
+            <select id="filtro-sol">
+                <option value="Todos">Qualquer luminosidade</option>
+                <option value="Luz indireta">Luz Indireta (Sombra)</option>
+                <option value="Sol direto">Sol Direto</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Tipo de vaso que você tem?</label>
+            <select id="filtro-vaso">
+                <option value="Todos">Qualquer vaso</option>
+                <option value="Barro ou Cerâmica">Barro / Cerâmica</option>
+                <option value="Plástico">Plástico</option>
+                <option value="Pendurado">Pendurado (Cuia/Suspenso)</option>
+                <option value="Grande">Vasos Grandes / Chão</option>
+            </select>
+        </div>
+
+        <button onclick="buscarEFiltrar()">Buscar Minha Planta Ideal</button>
+    </div>
+
+    <div id="mensagem"></div>
+
+    <table id="tabela-plantas">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Espécie</th>
+                <th>Sol Necessário</th>
+                <th>Rega</th>
+                <th>Vaso Ideal</th> 
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+    async function buscarEFiltrar() {
+        try {
+            const response = await fetch('http://localhost:3000/plantas');
+            const todasAsPlantas = await response.json();
+            
+            const categoriaSelecionada = document.getElementById('filtro-categoria').value;
+            const solSelecionado = document.getElementById('filtro-sol').value;
+            const vasoSelecionado = document.getElementById('filtro-vaso').value;
+
+            const plantasFiltradas = todasAsPlantas.filter(planta => {
+                const bateCategoria = categoriaSelecionada === "Todos" || planta.categoria === categoriaSelecionada;
+                const bateSol = solSelecionado === "Todos" || (planta.sol_necessario || "").includes(solSelecionado);
+                const bateVaso = vasoSelecionado === "Todos" || (planta.tipo_vaso || "").includes(vasoSelecionado);
+
+                return bateCategoria && bateSol && bateVaso;
+            });
+
+            renderizarTabela(plantasFiltradas);
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Certifique-se que o servidor (node server.js) está rodando!');
+        }
+    }
+
+    function renderizarTabela(lista) {
+        const tbody = document.querySelector('#tabela-plantas tbody');
+        const msg = document.getElementById('mensagem');
+        tbody.innerHTML = '';
+        
+        if (lista.length === 0) {
+            msg.innerText = "Nenhuma planta encontrada para esses filtros. Tente mudar o sol ou a categoria!";
+        } else {
+            msg.innerText = `Encontramos ${lista.length} plantas!`;
+            lista.forEach(planta => {
+    const tr = `<tr>
+        <td>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="${planta.imagem_url}" 
+                         referrerpolicy="no-referrer" 
+                         style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background: #eee;">
+                <strong>${planta.nome}</strong>
+            </div>
+        </td>
+        <td><em>${planta.especie}</em></td>
+        <td>${planta.sol_necessario}</td>
+        <td>${planta.frequencia_rega}</td>
+        <td>${planta.tipo_vaso}</td>
+    </tr>`;
+    tbody.innerHTML += tr;
+});
+        }
+    }
+</script>
+
+</body>
+</html>
