@@ -13,7 +13,10 @@ A partir desses dados, o aplicativo analisa e retorna a melhor sugestão de plan
 
 ## 🛠️ Tecnologias Utilizadas
 
-Para construir este projeto (desenvolvido como Atividade Prática Supervisionada - APS), focamos nas seguintes ferramentas:
-*   **Front-end & Back-end:** HTML e JavaScript.
-*   **Servidor Local e Banco de Dados:** Laragon.
+Para construir este projeto, desenvolvido como Atividade Prática Supervisionada - APS, focamos nas seguintes ferramentas:
+
+*   **Front-end:** HTML, Tailwind CSS e JavaScript.
+*   **Back-end:** Node.js com Express.
+*   **Banco de Dados:** MySQL.
+*   **Servidor Local:** Laragon.
 *   **Análise de Dados:** Power BI.
