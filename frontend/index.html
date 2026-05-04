@@ -1,202 +1,171 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-BR">
+<html class="dark" lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Window Garden</title>
+    <title>Window Garden - Sistema Real</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600&family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@400&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
+       tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        "brand-bg": "#F3EEF1",
+                        "brand-bg": "#fadbf2",
                         "brand-primary": "#D56989",
-                        "brand-secondary": "#EA9CAF",
                         "brand-accent": "#C2DC80",
                         "forest": "#2C4C3B"
-                    },
-                    fontFamily: {
-                        "label-bold": ["Lexend"],
-                        "headline-md": ["Plus Jakarta Sans"],
-                        "body-sm": ["Be Vietnam Pro"],
-                        "body-base": ["Be Vietnam Pro"],
-                        "display-lg": ["Plus Jakarta Sans"]
                     }
                 }
             }
         }
     </script>
-    <style>
-        .squishy-shadow {
-            box-shadow: 0 2px 10px rgba(213, 105, 137, 0.15);
-        }
-        .squishy-shadow-hover {
-            box-shadow: 0 6px 20px rgba(213, 105, 137, 0.25);
-        }
-    </style>
 </head>
-<body class="bg-brand-bg text-forest min-h-screen relative overflow-x-hidden font-body-base pb-12">
-    <div class="fixed inset-0 pointer-events-none z-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkhjbB0Hs3LgHuaAk-U7YpwYrTtmceaPXobT-3ayAm9nUXlVjGp39Ka_SOuk9nMSzEtMck3FHeldaiiz4IxxvjnYR80QLDAc7ya0TOUN1efEVlx8ckknP3t9PrGbjWIR_DLRPollV53dDpUbjEp4vNSuX8VsYgTZ2Z0AwfwJ28lTi-TPHT8gOSS8CCuJboHFim0501bpWBDl6y6A42RJyLwvmIlNBd51d3AZ4PzzUvabParSJD3vLvZ1w27Aw2xBXBERHda-G7w_A'); background-size: cover; background-position: center; opacity: 0.05;"></div>
+<body class="bg-brand-bg text-forest min-h-screen pb-12">
     
-    <header class="bg-white/90 backdrop-blur-md font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-tight border-b border-rose-50 shadow-[0_2px_10px_rgba(213,105,137,0.1)] relative z-10 docked full-width top-0">
-        <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1100px] mx-auto">
+    <header class="bg-white/90 backdrop-blur-md border-b border-rose-50 sticky top-0 z-50"> 
+        <div class="flex justify-between items-center px-6 py-4 max-w-[1100px] mx-auto">
             <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-brand-accent text-2xl" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
+                <span class="material-symbols-outlined text-brand-accent text-2xl" style="font-variation-settings: 'FILL' 1;">Bem-Vindo(a) ao</span>
                 <span class="text-2xl font-extrabold text-brand-primary tracking-tighter">Window Garden</span>
             </div>
-            <nav class="hidden md:flex gap-6">
-                <a class="text-forest font-bold border-b-2 border-brand-accent pb-1 hover:scale-105 transition-all duration-300 ease-out active:scale-95 cursor-pointer" href="index.html">Descobrir</a>
-                <a class="text-forest hover:text-brand-primary hover:scale-105 transition-all duration-300 ease-out active:scale-95 cursor-pointer" href="catalogo.html">Catálogo</a>
-            </nav>
+            <div id="status-badge" class="text-[10px] bg-gray-100 text-gray-500 px-2 py-1 rounded-md font-bold uppercase">A verificar servidor...</div>
         </div>
     </header>
 
-    <main class="relative z-10 max-w-[1100px] mx-auto px-6 pt-12">
-        <!-- Quiz Section -->
-        <section id="quiz" class="mb-12 scroll-mt-24">
-            <div class="text-center mb-6">
-                <h1 class="font-display-lg text-4xl font-extrabold text-brand-accent mb-2">Encontre sua planta ideal</h1>
-                <p class="font-body-base text-lg text-forest">Responda a algumas perguntas rápidas para descobrir qual planta vai amar a sua janela.</p>
-            </div>
-            
-            <div class="bg-white rounded-xl p-8 squishy-shadow max-w-3xl mx-auto border-t-4 border-t-brand-secondary">
-                <!-- Question 1 -->
-                <div class="mb-6 question-group">
-                    <h2 class="font-headline-md text-2xl text-forest mb-4">Luminosidade na janela?</h2>
-                    <div class="flex flex-wrap gap-4">
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Muita luz</button>
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Sombra parcial</button>
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Quase nenhuma</button>
-                    </div>
+    <main class="max-w-[1100px] mx-auto px-6 pt-12">
+        <div class="bg-white p-8 rounded-2xl shadow-sm mb-12 border border-rose-50">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-brand-primary uppercase">Categoria</label>
+                    <select id="filtro-categoria" class="rounded-xl border-gray-200">
+                        <option value="Todos">Tudo</option>
+                        <option value="Folhagem">Folhagem</option>
+                        <option value="Flor">Flor</option>
+                        <option value="Horta">Horta</option>
+                    </select>
                 </div>
-
-                <!-- Question 2 -->
-                <div class="mb-8 question-group">
-                    <h2 class="font-headline-md text-2xl text-forest mb-4">Espaço disponível?</h2>
-                    <div class="flex flex-wrap gap-4">
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Pequeno</button>
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Médio</button>
-                        <button class="quiz-pill bg-white border-2 border-brand-secondary text-forest px-6 py-3 rounded-full font-label-bold hover:bg-brand-secondary/10 transition-colors squishy-shadow">Grande</button>
-                    </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-brand-primary uppercase">Sol</label>
+                    <select id="filtro-sol" class="rounded-xl border-gray-200">
+                        <option value="Todos">Qualquer luz</option>
+                        <option value="Luz indireta">Luz Indireta</option>
+                        <option value="Sol direto">Sol Direto</option>
+                    </select>
                 </div>
-
-                <div class="flex justify-center mt-8">
-                    <button class="bg-brand-primary text-white font-label-bold px-8 py-4 rounded-full squishy-shadow hover:scale-105 transition-transform duration-300 ease-out squishy-shadow-hover flex items-center gap-2" onclick="encontrarPlanta()">
-                        Encontrar Minha Planta 🪴
-                    </button>
-                </div>
-
-                <div id="resultado-planta" class="mt-8 hidden">
-                    <h3 class="text-2xl font-bold text-brand-primary mb-6 text-center" id="titulo-resultado">Boas opções para você:</h3>
-                    <div id="grid-resultado" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-brand-primary uppercase">Vaso Ideal</label>
+                    <select id="filtro-vaso" class="rounded-xl border-gray-200">
+                        <option value="Todos">Qualquer vaso</option>
+                        <option value="Barro">Barro / Cerâmica</option>
+                        <option value="Plástico">Plástico</option>
+                        <option value="Pendurado">Pendurado</option>
+                        <option value="Grande">Vasos Grande / Chão</option>
+                    </select>
                 </div>
             </div>
-        </section>
+            <button onclick="buscarEFiltrar()" class="w-full bg-brand-accent hover:bg-forest hover:text-white text-forest font-bold py-4 rounded-xl transition-all">
+                BUSCAR NO BANCO DE DADOS
+            </button>
+        </div>
 
-        <section id="catalogo" class="scroll-mt-24">
-            <h2 class="font-headline-md text-3xl font-bold text-brand-accent mb-6 text-center">Recomendações Populares</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-brand-secondary/10 rounded-xl p-4 squishy-shadow hover:squishy-shadow-hover transition-shadow duration-300">
-                    <div class="w-full h-48 rounded-lg mb-4 bg-white overflow-hidden relative">
-                        <img alt="Zamioculca" class="w-full h-full object-cover" src="pic/Zamioculca.jpg"/>
-                    </div>
-                    <h3 class="font-label-bold text-lg text-forest mb-1">Zamioculca</h3>
-                    <p class="font-body-sm text-sm text-forest">A planta guerreira! Ótima para ambientes com pouca luz.</p>
-                </div>
-
-                <div class="bg-brand-secondary/10 rounded-xl p-4 squishy-shadow hover:squishy-shadow-hover transition-shadow duration-300">
-                    <div class="w-full h-48 rounded-lg mb-4 bg-white overflow-hidden relative">
-                        <img alt="Jiboia" class="w-full h-full object-cover" src="pic/jiboia.jpeg"/>
-                    </div>
-                    <h3 class="font-label-bold text-lg text-forest mb-1">Jiboia</h3>
-                    <p class="font-body-sm text-sm text-forest">Adapta-se bem à meia-sombra. Crescimento rápido e pendente.</p>
-                </div>
-
-                <div class="bg-brand-secondary/10 rounded-xl p-4 squishy-shadow hover:squishy-shadow-hover transition-shadow duration-300">
-                    <div class="w-full h-48 rounded-lg mb-4 bg-white overflow-hidden relative">
-                        <img alt="Espada de São Jorge" class="w-full h-full object-cover" src="pic/sao-jorge.png"/>
-                    </div>
-                    <h3 class="font-label-bold text-lg text-forest mb-1">Espada-de-São-Jorge</h3>
-                    <p class="font-body-sm text-sm text-forest">Extremamente resistente. Tolera baixa luminosidade.</p>
-                </div>
-
-                <div class="bg-brand-secondary/10 rounded-xl p-4 squishy-shadow hover:squishy-shadow-hover transition-shadow duration-300">
-                    <div class="w-full h-48 rounded-lg mb-4 bg-white overflow-hidden relative">
-                        <img alt="Costela-de-Adão" class="w-full h-full object-cover" src="pic/Costela-de-Adão.jpg"/>
-                    </div>
-                    <h3 class="font-label-bold text-lg text-forest mb-1">Costela-de-Adão</h3>
-                    <p class="font-body-sm text-sm text-forest">Folhagem elegante que adora luz indireta e ambientes úmidos.</p>
-                </div>
-            </div>
-        </section>
+        <div id="mensagem" class="text-center mb-8 font-medium"></div>
+        <div id="grid-plantas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const questionGroups = document.querySelectorAll('.question-group');
-            
-            questionGroups.forEach(group => {
-                const pills = group.querySelectorAll('.quiz-pill');
-                
-                pills.forEach(pill => {
-                    pill.addEventListener('click', () => {
-                        pills.forEach(p => {
-                            p.classList.remove('bg-brand-secondary', 'text-white');
-                            p.classList.add('bg-white', 'text-forest');
-                            p.dataset.selected = "false";
-                        });
-                        
-                        pill.classList.remove('bg-white', 'text-forest');
-                        pill.classList.add('bg-brand-secondary', 'text-white');
-                        pill.dataset.selected = "true";
-                    });
-                });
-            });
-        });
+<script>
+    const API_URL = 'http://localhost:3000/plantas';
 
-        async function encontrarPlanta() {
-            try {
-                const plantasDatabase = [{"\ufeffID": "1", "Nome": "Jiboia", "Esp\u00e9cie": "Epipremnum aureum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "jiboia.jpeg"}, {"\ufeffID": "2", "Nome": "Espada-de-S\u00e3o-Jorge", "Esp\u00e9cie": "Dracaena trifasciata", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Direto ou indireto (2-6h)", "Frequ\u00eancia de Rega": "1x a cada 15 dias", "Tipo de Vaso": "Barro ou Cer\u00e2mica", "ImageFile": "sao-jorge.png"}, {"\ufeffID": "3", "Nome": "Zamioculca", "Esp\u00e9cie": "Zamioculcas zamiifolia", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (1-2h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Pl\u00e1stico ou Cer\u00e2mica", "ImageFile": "Zamioculca.jpg"}, {"\ufeffID": "4", "Nome": "Maranta-Pena-de-Pav\u00e3o", "Esp\u00e9cie": "Maranta leuconeura", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Pl\u00e1stico", "ImageFile": "Maranta-Pena-de-Pav\u00e3o.jpg"}, {"\ufeffID": "5", "Nome": "Sing\u00f4nio", "Esp\u00e9cie": "Syngonium podophyllum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pl\u00e1stico ou Barro", "ImageFile": "Sing\u00f4nio.jpg"}, {"\ufeffID": "6", "Nome": "Filodendro-Brasil", "Esp\u00e9cie": "Philodendron hederaceum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Filodendro-Brasil.jpg"}, {"\ufeffID": "7", "Nome": "Clorofito", "Esp\u00e9cie": "Chlorophytum comosum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta/Direta (3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Clorofito.jpg"}, {"\ufeffID": "8", "Nome": "Peper\u00f4mia-Melancia", "Esp\u00e9cie": "Peperomia argyreia", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-3h)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Peper\u00f4mia-Melancia.jpg"}, {"\ufeffID": "9", "Nome": "Dinheiro-em-penca", "Esp\u00e9cie": "Callisia repens", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Cuia (Pendurado)", "ImageFile": "Dinheiro-em-penca.jpg"}, {"\ufeffID": "10", "Nome": "Lambari-roxo", "Esp\u00e9cie": "Tradescantia zebrina", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Sol direto/Indireto (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Cuia (Pendurado)", "ImageFile": "Lambari-roxo.jpg"}, {"\ufeffID": "11", "Nome": "Costela-de-Ad\u00e3o", "Esp\u00e9cie": "Monstera deliciosa", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-5h)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Grande e fundo", "ImageFile": "Costela-de-Ad\u00e3o.jpg"}, {"\ufeffID": "12", "Nome": "Palmeira-R\u00e1fia", "Esp\u00e9cie": "Rhapis excelsa", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Grande (Coluna)", "ImageFile": "Palmeira-R\u00e1fia.jpg"}, {"\ufeffID": "13", "Nome": "Palmeira-Areca", "Esp\u00e9cie": "Dypsis lutescens", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Sol direto/Indireto (4h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Palmeira-Areca.jpg"}, {"\ufeffID": "14", "Nome": "Pau-d\u2019\u00e1gua", "Esp\u00e9cie": "Dracaena fragrans", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio/Grande", "ImageFile": "Pau-d\u2019\u00e1gua.jpg"}, {"\ufeffID": "15", "Nome": "Samambaia-Americana", "Esp\u00e9cie": "Nephrolepis exaltata", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra clara)", "Frequ\u00eancia de Rega": "Di\u00e1ria ou 3x/semana", "Tipo de Vaso": "Cuia de Fibra/Pl\u00e1stico", "ImageFile": "Samambaia-Americana.png"}, {"\ufeffID": "16", "Nome": "Avenca", "Esp\u00e9cie": "Adiantum capillus-veneris", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Pl\u00e1stico", "ImageFile": "Avenca.jpeg"}, {"\ufeffID": "17", "Nome": "Chifre-de-veado", "Esp\u00e9cie": "Platycerium bifurcatum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Madeira ou Pl\u00e1stico", "ImageFile": "Chifre-de-veado.jpg"}, {"\ufeffID": "18", "Nome": "Hera-inglesa", "Esp\u00e9cie": "Hedera helix", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Sol direto/Indireto (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Hera-inglesa.jpg"}, {"\ufeffID": "19", "Nome": "F\u00edcus-Lirata", "Esp\u00e9cie": "Ficus lyrata", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (4-6h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Grande e pesado", "ImageFile": "F\u00edcus-Lirata.jpg"}, {"\ufeffID": "20", "Nome": "Ficus-Elastica", "Esp\u00e9cie": "Ficus elastica", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Sol direto/Indireto (4h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Ficus-Elastica.jpg"}, {"\ufeffID": "21", "Nome": "Aspargo-alfinete", "Esp\u00e9cie": "Asparagus densiflorus", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Aspargo-alfinete.jpeg"}, {"\ufeffID": "22", "Nome": "Croton", "Esp\u00e9cie": "Codiaeum variegatum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x a 3x por semana", "Tipo de Vaso": "Barro ou Cer\u00e2mica", "ImageFile": "Croton.jpeg"}, {"\ufeffID": "23", "Nome": "Aglaonema", "Esp\u00e9cie": "Aglaonema commutatum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (1-2h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Aglaonema.jpg"}, {"\ufeffID": "24", "Nome": "Calathea-Ornata", "Esp\u00e9cie": "Calathea ornata", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Pl\u00e1stico", "ImageFile": "Calathea-Ornata.jpg"}, {"\ufeffID": "25", "Nome": "Comigo-ningu\u00e9m-pode", "Esp\u00e9cie": "Dieffenbachia seguine", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Comigo-ningu\u00e9m-pode.jpeg"}, {"\ufeffID": "26", "Nome": "Pacov\u00e1", "Esp\u00e9cie": "Philodendron martianum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-3h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "M\u00e9dio/Grande", "ImageFile": "Pacov\u00e1.jpg"}, {"\ufeffID": "27", "Nome": "Fit\u00f4nia", "Esp\u00e9cie": "Fittonia albivenis", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Pequeno", "ImageFile": "Fit\u00f4nia.jpeg"}, {"\ufeffID": "28", "Nome": "Bambu-da-sorte", "Esp\u00e9cie": "Dracaena sanderiana", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (1-2h)", "Frequ\u00eancia de Rega": "Troca de \u00e1gua", "Tipo de Vaso": "Vidro ou Vaso pequeno", "ImageFile": "Bambu-da-sorte.jpg"}, {"\ufeffID": "29", "Nome": "Columeia-batom", "Esp\u00e9cie": "Aeschynanthus radicans", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Cuia (Pendurado)", "ImageFile": "Columeia-batom.jpg"}, {"\ufeffID": "30", "Nome": "Peper\u00f4mia-scandens", "Esp\u00e9cie": "Peperomia nitida", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Peper\u00f4mia-scandens.jpeg"}, {"\ufeffID": "31", "Nome": "Pilea", "Esp\u00e9cie": "Pilea peperomioides", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Pilea.jpg"}, {"\ufeffID": "32", "Nome": "Beg\u00f4nia-rex", "Esp\u00e9cie": "Begonia rex-cultorum", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (2-3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Barro ou Pl\u00e1stico", "ImageFile": "Beg\u00f4nia-rex.jpg"}, {"\ufeffID": "33", "Nome": "Rips\u00e1lis", "Esp\u00e9cie": "Rhipsalis baccifera", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Rips\u00e1lis.jpg"}, {"\ufeffID": "34", "Nome": "Planta-mosaico", "Esp\u00e9cie": "Ludisia discolor", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (Sombra)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Planta-mosaico.jpg"}, {"\ufeffID": "35", "Nome": "Aloc\u00e1sia-Polly", "Esp\u00e9cie": "Alocasia amazonica", "Categoria": "Folhagem", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Aloc\u00e1sia-Polly.jpg"}, {"\ufeffID": "36", "Nome": "Violeta-africana", "Esp\u00e9cie": "Saintpaulia ionantha", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno (Barro)", "ImageFile": "Violeta-africana.jpg"}, {"\ufeffID": "37", "Nome": "Orqu\u00eddea", "Esp\u00e9cie": "Phalaenopsis x hybridus", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (3-4h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Transparente", "ImageFile": "Orqu\u00eddea.png"}, {"\ufeffID": "38", "Nome": "Ant\u00fario", "Esp\u00e9cie": "Anthurium andraeanum", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "2x a 3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Ant\u00fario.jpg"}, {"\ufeffID": "39", "Nome": "L\u00edrio-da-paz", "Esp\u00e9cie": "Spathiphyllum wallisii", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (2-4h)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "L\u00edrio-da-paz.jpg"}, {"\ufeffID": "40", "Nome": "Ger\u00e2nio", "Esp\u00e9cie": "Pelargonium hortorum", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Barro", "ImageFile": "Ger\u00e2nio.jpeg"}, {"\ufeffID": "41", "Nome": "Kalanchoe", "Esp\u00e9cie": "Kalanchoe blossfeldiana", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Pequeno (Barro)", "ImageFile": "Kalanchoe.jpeg"}, {"\ufeffID": "42", "Nome": "Beg\u00f4nia", "Esp\u00e9cie": "Begonia semperflorens", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta/Direta (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Beg\u00f4nia.jpg"}, {"\ufeffID": "43", "Nome": "Onze-horas", "Esp\u00e9cie": "Portulaca grandiflora", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Cuia rasa", "ImageFile": "Onze-horas.jpg"}, {"\ufeffID": "44", "Nome": "Mini-rosa", "Esp\u00e9cie": "Rosa chinensis", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Barro", "ImageFile": "Mini-rosa.png"}, {"\ufeffID": "45", "Nome": "Flor-de-maio", "Esp\u00e9cie": "Schlumbergera truncata", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "M\u00e9dio (Pendurado)", "ImageFile": "Flor-de-maio.jpg"}, {"\ufeffID": "46", "Nome": "Azaleia", "Esp\u00e9cie": "Rhododendron simsii", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Barro", "ImageFile": "Azaleia.jpg"}, {"\ufeffID": "47", "Nome": "Ciclamen", "Esp\u00e9cie": "Cyclamen persicum", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Ciclamen.jpg"}, {"\ufeffID": "48", "Nome": "G\u00e9rbera", "Esp\u00e9cie": "Gerbera jamesonii", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "G\u00e9rbera.jpg"}, {"\ufeffID": "49", "Nome": "Maria-sem-vergonha", "Esp\u00e9cie": "Impatiens walleriana", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol indireto", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Maria-sem-vergonha.jpg"}, {"\ufeffID": "50", "Nome": "Flor-de-cera", "Esp\u00e9cie": "Hoya carnosa", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "M\u00e9dio (Treli\u00e7a)", "ImageFile": "Flor-de-cera.jpg"}, {"\ufeffID": "51", "Nome": "Lavanda", "Esp\u00e9cie": "Lavandula angustifolia", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Barro", "ImageFile": "Lavanda.jpg"}, {"\ufeffID": "52", "Nome": "Vinca", "Esp\u00e9cie": "Catharanthus roseus", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Vinca.jpeg"}, {"\ufeffID": "53", "Nome": "Amor-perfeito", "Esp\u00e9cie": "Viola tricolor", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Amor-perfeito.jpeg"}, {"\ufeffID": "54", "Nome": "Cris\u00e2ntemo", "Esp\u00e9cie": "Chrysanthemum morifolium", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (4h)", "Frequ\u00eancia de Rega": "2x a 3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Cris\u00e2ntemo.jpg"}, {"\ufeffID": "55", "Nome": "Gard\u00eania", "Esp\u00e9cie": "Gardenia jasminoides", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "M\u00e9dio/Grande", "ImageFile": "Gard\u00eania.jpeg"}, {"\ufeffID": "56", "Nome": "Primavera (Bonsai)", "Esp\u00e9cie": "Bougainvillea glabra", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Vaso de Bonsai", "ImageFile": "Primavera (Bonsai).jpeg"}, {"\ufeffID": "57", "Nome": "Hibisco", "Esp\u00e9cie": "Hibiscus rosa-sinensis", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Hibisco.png"}, {"\ufeffID": "58", "Nome": "Pet\u00fania", "Esp\u00e9cie": "Petunia x hybrida", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Cuia ou Floreira", "ImageFile": "Pet\u00fania.jpeg"}, {"\ufeffID": "59", "Nome": "Beldroega", "Esp\u00e9cie": "Portulaca oleracea", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Beldroega.png"}, {"\ufeffID": "60", "Nome": "Lanterna-chinesa", "Esp\u00e9cie": "Abutilon striatum", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (4h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Lanterna-chinesa.jpg"}, {"\ufeffID": "61", "Nome": "Beijo-pintado", "Esp\u00e9cie": "Impatiens hawkeri", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta/Direta (4h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Beijo-pintado.jpg"}, {"\ufeffID": "62", "Nome": "Glox\u00ednia", "Esp\u00e9cie": "Sinningia speciosa", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Glox\u00ednia.jpg"}, {"\ufeffID": "63", "Nome": "Calceol\u00e1ria", "Esp\u00e9cie": "Calceolaria herbeohybrida", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta (3h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno", "ImageFile": "Calceol\u00e1ria.jpg"}, {"\ufeffID": "64", "Nome": "Flor-de-vidro", "Esp\u00e9cie": "Impatiens balsamina", "Categoria": "Flor", "Sol Necess\u00e1rio": "Luz indireta/Meia sombra", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Impatiens balsamina.jpg"}, {"\ufeffID": "65", "Nome": "Estrel\u00edtzia", "Esp\u00e9cie": "Strelitzia reginae", "Categoria": "Flor", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Grande e fundo", "ImageFile": "Estrel\u00edtzia.jpg"}, {"\ufeffID": "66", "Nome": "Manjeric\u00e3o", "Esp\u00e9cie": "Ocimum basilicum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Manjeric\u00e3o.png"}, {"\ufeffID": "67", "Nome": "Alecrim", "Esp\u00e9cie": "Salvia rosmarinus", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Barro", "ImageFile": "Alecrim.png"}, {"\ufeffID": "68", "Nome": "Hortel\u00e3", "Esp\u00e9cie": "Mentha spicata", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio (Largo)", "ImageFile": "Hortel\u00e3.jpeg"}, {"\ufeffID": "69", "Nome": "Salsinha", "Esp\u00e9cie": "Petroselinum crispum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Floreira ou M\u00e9dio", "ImageFile": "Salsinha.jpg"}, {"\ufeffID": "70", "Nome": "Cebolinha", "Esp\u00e9cie": "Allium fistulosum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Floreira ou M\u00e9dio", "ImageFile": "Cebolinha.png"}, {"\ufeffID": "71", "Nome": "Tomilho", "Esp\u00e9cie": "Thymus vulgaris", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "1x por semana", "Tipo de Vaso": "Barro pequeno", "ImageFile": "Tomilho.jpg"}, {"\ufeffID": "72", "Nome": "Or\u00e9gano", "Esp\u00e9cie": "Origanum vulgare", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Or\u00e9gano.png"}, {"\ufeffID": "73", "Nome": "Coentro", "Esp\u00e9cie": "Coriandrum sativum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio (Profundo)", "ImageFile": "Coentro.png"}, {"\ufeffID": "74", "Nome": "S\u00e1lvia", "Esp\u00e9cie": "Salvia officinalis", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Barro m\u00e9dio", "ImageFile": "S\u00e1lvia.png"}, {"\ufeffID": "75", "Nome": "Manjerona", "Esp\u00e9cie": "Origanum majorana", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Manjerona.jpg"}, {"\ufeffID": "76", "Nome": "Arruda", "Esp\u00e9cie": "Ruta graveolens", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Arruda.jpeg"}, {"\ufeffID": "77", "Nome": "Pimenta-malagueta", "Esp\u00e9cie": "Capsicum frutescens", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Pimenta-malagueta.jpeg"}, {"\ufeffID": "78", "Nome": "Pimenta-biquinho", "Esp\u00e9cie": "Capsicum chinense", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Pimenta-biquinho.jpeg"}, {"\ufeffID": "79", "Nome": "Tomate-cereja", "Esp\u00e9cie": "Solanum lycopersicum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Grande", "ImageFile": "Tomate-cereja.png"}, {"\ufeffID": "80", "Nome": "Morango", "Esp\u00e9cie": "Fragaria x ananassa", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Cuia", "ImageFile": "Morango.jpg"}, {"\ufeffID": "81", "Nome": "Erva-doce", "Esp\u00e9cie": "Pimpinella anisum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Profundo)", "ImageFile": "Erva-doce.jpeg"}, {"\ufeffID": "82", "Nome": "Melissa", "Esp\u00e9cie": "Melissa officinalis", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Melissa.jpg"}, {"\ufeffID": "83", "Nome": "Capim-lim\u00e3o", "Esp\u00e9cie": "Cymbopogon citratus", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Capim-lim\u00e3o.png"}, {"\ufeffID": "84", "Nome": "Louro", "Esp\u00e9cie": "Laurus nobilis", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "1x a 2x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Louro.jpg"}, {"\ufeffID": "85", "Nome": "Boldo", "Esp\u00e9cie": "Peumus boldus", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Boldo.png"}, {"\ufeffID": "86", "Nome": "Poejo", "Esp\u00e9cie": "Mentha pulegium", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Poejo.png"}, {"\ufeffID": "87", "Nome": "Manjeric\u00e3o-roxo", "Esp\u00e9cie": "Ocimum basilicum purpurascens", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Manjeric\u00e3o-roxo.jpeg"}, {"\ufeffID": "88", "Nome": "Alface-baby", "Esp\u00e9cie": "Lactuca sativa", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Floreira rasa", "ImageFile": "Alface-baby.jpg"}, {"\ufeffID": "89", "Nome": "R\u00facula", "Esp\u00e9cie": "Eruca sativa", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Floreira rasa", "ImageFile": "R\u00facula.jpg"}, {"\ufeffID": "90", "Nome": "Espinafre", "Esp\u00e9cie": "Spinacia oleracea", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Espinafre.jpeg"}, {"\ufeffID": "91", "Nome": "Alho-por\u00f3", "Esp\u00e9cie": "Allium ampeloprasum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Profundo)", "ImageFile": "Alho-por\u00f3.jpeg"}, {"\ufeffID": "92", "Nome": "Gengibre", "Esp\u00e9cie": "Zingiber officinale", "Categoria": "Horta", "Sol Necess\u00e1rio": "Luz indireta (4h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Largo e profundo", "ImageFile": "Gengibre.png"}, {"\ufeffID": "93", "Nome": "A\u00e7afr\u00e3o-da-terra", "Esp\u00e9cie": "Curcuma longa", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto/Meia sombra", "Frequ\u00eancia de Rega": "3x por semana", "Tipo de Vaso": "Largo e profundo", "ImageFile": "A\u00e7afr\u00e3o-da-terra.jpg"}, {"\ufeffID": "94", "Nome": "Camomila", "Esp\u00e9cie": "Matricaria chamomilla", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Pequeno/M\u00e9dio", "ImageFile": "Camomila.jpg"}, {"\ufeffID": "95", "Nome": "Alface-mimosa", "Esp\u00e9cie": "Lactuca sativa var. capitata", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "Floreira", "ImageFile": "Alface-mimosa.jpg"}, {"\ufeffID": "96", "Nome": "Dill (Endro)", "Esp\u00e9cie": "Anethum graveolens", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio (Profundo)", "ImageFile": "Dill (Endro).png"}, {"\ufeffID": "97", "Nome": "Est\u00e9via", "Esp\u00e9cie": "Stevia rebaudiana", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Est\u00e9via.jpg"}, {"\ufeffID": "98", "Nome": "Manjeric\u00e3o-lim\u00e3o", "Esp\u00e9cie": "Ocimum citriodorum", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h+)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Manjeric\u00e3o-lim\u00e3o.png"}, {"\ufeffID": "99", "Nome": "Mostarda", "Esp\u00e9cie": "Brassica juncea", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (4-6h)", "Frequ\u00eancia de Rega": "Di\u00e1ria", "Tipo de Vaso": "M\u00e9dio", "ImageFile": "Mostarda.jpg"}, {"\ufeffID": "100", "Nome": "Erva-doce-cabe\u00e7a", "Esp\u00e9cie": "Foeniculum vulgare", "Categoria": "Horta", "Sol Necess\u00e1rio": "Sol direto (6h)", "Frequ\u00eancia de Rega": "2x por semana", "Tipo de Vaso": "Grande", "ImageFile": "Erva-doce-cabe\u00e7a.jpg"}];
-                
-                const resultDiv = document.getElementById('resultado-planta');
-                const gridResultado = document.getElementById('grid-resultado');
-                const tituloResultado = document.getElementById('titulo-resultado');
-                
-                resultDiv.classList.remove('hidden');
-                tituloResultado.innerText = "Analisando o banco de dados...";
-                gridResultado.innerHTML = "";
-                
-                setTimeout(() => {
-                    tituloResultado.innerText = "Nossas Top 3 recomendações para a sua janela:";
-                    
-                    const shuffled = plantasDatabase.sort(() => 0.5 - Math.random());
-                    const selecionadas = shuffled.slice(0, 3);
-                    
-                    const htmlCards = selecionadas.map(planta => `
-                        <div class="bg-brand-secondary/10 rounded-xl p-4 squishy-shadow hover:squishy-shadow-hover transition-shadow duration-300 flex flex-col text-left">
-                            <div class="w-full h-40 rounded-lg mb-4 bg-white overflow-hidden relative flex items-center justify-center">
-                                <img alt="Planta ${planta.Nome}" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" src="pic/${planta.ImageFile}" onerror="this.src='https://placehold.co/400x300/F3EEF1/D56989?text=${encodeURIComponent(planta.Nome)}'"/>
+    async function buscarEFiltrar() { //Filtro pras pesquisas
+        const msg = document.getElementById('mensagem');
+        const badge = document.getElementById('status-badge');
+        
+        try {
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('Falha no servidor');
+            
+            const dados = await response.json();
+            badge.className = "text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-md font-bold uppercase";
+            badge.innerText = "ONLINE";
+
+            const catSel = document.getElementById('filtro-categoria').value;
+            const solSel = document.getElementById('filtro-sol').value;
+            const vasoSel = document.getElementById('filtro-vaso').value;
+
+            const filtradas = dados.filter(p => {
+                const bateCat = catSel === "Todos" || (p.categoria || "").includes(catSel);
+                const bateSol = solSel === "Todos" || (p.sol_necessario || "").includes(solSel);
+                const bateVaso = vasoSel === "Todos" || (p.tipo_vaso || "").includes(vasoSel);
+                return bateCat && bateSol && bateVaso;
+            });
+
+            renderizar(filtradas);
+        } catch (error) {
+            badge.className = "text-[10px] bg-red-100 text-red-700 px-2 py-1 rounded-md font-bold uppercase";
+            badge.innerText = "OFFLINE";
+            msg.innerHTML = "<b class='text-red-500'>Ligue o Node (server.js) e o Laragon!</b>";
+        }
+    }
+
+    function renderizar(lista) {
+        const grid = document.getElementById('grid-plantas');
+        const msg = document.getElementById('mensagem');
+        
+        msg.innerText = lista.length === 0 ? "Nenhuma planta encontrada." : `Encontradas ${lista.length} plantas!`;
+        
+        grid.innerHTML = lista.map(p => {
+            const nomeBase = p.nome;
+            // Iniciando a busca das imagens por jpg
+            const caminhoInicial = `pic/${nomeBase}.jpg`;
+
+            return `
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-rose-50 flex flex-col h-full">
+                    <div class="relative h-64 bg-gray-50 flex items-center justify-center overflow-hidden">
+                        <img src="${caminhoInicial}" 
+                             class="w-full h-full object-contain p-2 transition-transform duration-300 hover:scale-105"
+                             onerror="verificarImagens(this, '${nomeBase}')">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-forest">${p.nome}</h3>
+                        <p class="text-xs text-brand-primary italic mb-4">${p.especie || ''}</p>
+                        <div class="space-y-2 border-t pt-4">
+                            <div class="flex items-center gap-2 text-[10px] font-bold uppercase">
+                                <span class="material-symbols-outlined text-sm text-brand-accent">Sol Necessário</span> 
+                                <span class="text-gray-400">Sol:</span> ${p.sol_necessario}
                             </div>
-                            <h3 class="font-label-bold text-lg text-forest mb-1">${planta.Nome}</h3>
-                            <p class="font-body-sm text-xs text-brand-primary italic mb-2">${planta.Espécie}</p>
-                            <div class="mt-auto space-y-1">
-                                <p class="font-body-sm text-xs text-forest"><strong>☀️ Luz:</strong> ${planta["Sol Necessário"]}</p>
-                                <p class="font-body-sm text-xs text-forest"><strong>💧 Rega:</strong> ${planta["Frequência de Rega"]}</p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold uppercase">
+                                <span class="material-symbols-outlined text-sm text-brand-primary">Frequência de Rega</span>
+                                <span class="text-gray-400">Rega:</span> ${p.frequencia_rega}
                             </div>
                         </div>
-                    `).join('');
-                    
-                    gridResultado.innerHTML = htmlCards;
-                }, 800);
-            } catch (error) {
-                console.error("Erro ao buscar plantas:", error);
-            }
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function verificarImagens(img, nome) { //Filtragem pra ver se as imagens são png, jpg ou jpeg
+        const extensoes = ['.png', '.jpeg', '.PNG', '.JPG', '.JPEG'];
+        
+        // Descobre qual foi a última tentativa baseada na URL atual
+        let index = -1;
+        if (img.src.includes('.jpg')) index = -1;
+        else if (img.src.includes('.png') || img.src.includes('.PNG')) index = 0;
+        else if (img.src.includes('.jpeg') || img.src.includes('.JPEG')) index = 2;
+
+        let proximo = index + 1;
+
+        if (proximo < extensoes.length) {
+            img.src = `pic/${nome}${extensoes[proximo]}`;
+        } else {
+            // Se tudo falar o erro aparece
+            img.onerror = null;
+            img.src = `https://placehold.co/400x300/F3EEF1/D56989?text=${encodeURIComponent(nome)}`;
         }
-    </script>
+    }
+
+    window.onload = buscarEFiltrar;
+</script>
 </body>
 </html>
